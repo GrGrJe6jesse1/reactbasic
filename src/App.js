@@ -50,16 +50,33 @@ function App() {
 
   // State는 기존 값을 잃어버리지 않고 기억하고 있다.
 
+  let num1 = [1,2,3,4]
+  let names = ["성아", "SungAh", "아아", "AAA"]
+  
+
+
   return (
     <div className='App'>
         {/* <State/>
         <h1>{count}</h1>
         <button onClick={increase}>+1</button>
         <Box/> */}
-      <Box num="1"/>
-      <Box num="2"/>
-      <Box num="3"/>
-      <Box num="4"/>
+      {/* <Box name="SungAh" num="1"/>
+      <Box name="성아" num="2"/>
+      <Box name="아아" num="3"/>
+      <Box name="AAA" num="4"/> */}
+
+      {
+        names.map(function(a, i){
+          return (
+            <div className="box" key={i}>
+              <h1>Box{num[i]}</h1>
+              <h2>{names[i]}</h2>
+            </div>
+          )
+        })
+      }
+
     </div>
   )
 }
