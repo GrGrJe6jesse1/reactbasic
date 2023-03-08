@@ -2,40 +2,53 @@ import React from "react";
 import {useState} from 'react';
 // import './Comment.css'
 
-const style = {
-  display: 'flex',
-  margin : '8px',
-  padding: '8px',
-  border: '1px solid #ccc',
-  borderRadius: '16px'
-};
+const styles = {
+  Wrapper : {
+    display: 'flex',
+    margin : '8px',
+    padding: '8px',
+    border: '1px solid #ccc',
+    borderRadius: '16px'
+  },
+  image : {
+    width: '50px',
+    height: '50px',
+    borderRadius: '50%'
+  },
+  contentContainer : {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    marginLeft: '8px'
+  },
+  nameTaxt : {
+    fontSize: '18px',
+    fontWeight: 'bold'
+  },
+  commentText : {
+    fontSize: '14px',
+  }
 
-const style1 = {
-  width: '50px',
-  height: '50px',
-  borderRadius: '50%'
-}
+};
 
 
 
 
 function Comment(props) {
   return (
-    <div className="Wrapper" style={style}>
-      <div className="img-box" >
-        <img style={style1} src="https://pbs.twimg.com/media/FPBHvSRaMAgrqae.jpg" alt="moku" />
+    <div>
+      <div>
+        <div className="Wrapper" style={styles.Wrapper}>
+          <div className="img-box" >
+            <img style={styles.image} src="https://pbs.twimg.com/media/FPBHvSRaMAgrqae.jpg" alt="moku" />
+          </div>
+          <div className="content-container" style={styles.contentContainer}>
+            <span className="name-text" style={styles.nameTaxt}>{props.name}</span>
+            <span className="comment-text" style={styles.commentText}>{props.comment}</span>
+          </div>
+          <button onClick={props.onDelete}>X</button>
+        </div>
       </div>
-
-      <div className="content-container" style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        marginLeft: '8px'
-      }}>
-        <span className="name-text">{props.name}</span>
-        <span className="comment-text">{props.comment}</span>
-      </div>
-
     </div>
   )
 }
