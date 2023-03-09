@@ -37,14 +37,31 @@ function CommentList () {
     // }
     // setCommentList([add, ...CommentList])
 
-    const add = {
-      name : name,
-      comment : content
-    }
-    setCommentList([add, ...CommentList])
-    // state변경 함수에 빈 문자 입력해서 input에 작성된 내용 초기화
-    setName('')
-    setContent('')
+    // const add = {
+    //   name : name,
+    //   comment : content
+    // }
+    // setCommentList([add, ...CommentList])
+    // // state변경 함수에 빈 문자 입력해서 input에 작성된 내용 초기화
+    // setName('')
+    // setContent('')
+
+    // name, content value값이 없을 때
+    name === '' || content === '' ? alert('이름과 댓글을 입력하세요') : (
+      (()=>{
+        const add = {
+          name : name,
+          comment : content
+        }
+        setCommentList([add, ...CommentList])
+        // state변경 함수에 빈 문자 입력해서 input에 작성된 내용 초기화
+        setName('')
+        setContent('')
+      })()
+    )
+
+
+    
   }
 
   return (
